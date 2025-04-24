@@ -23,13 +23,6 @@ const app = express();
 const connectDB = async () => {
   try {
     await mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`);
-    app.on("error", (err) => {
-      console.log("❌ this is the error : ", err);
-      throw err;
-    });
-    app.listen(process.env.PORT, () => {
-      console.log(`🔥 surver is running on port ${process.env.PORT}`);
-    });
   } catch (error) {
     console.log(`❌ ERROR : `, error);
   }
